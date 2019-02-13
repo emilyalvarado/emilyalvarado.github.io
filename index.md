@@ -1,5 +1,3 @@
-# Welcome to Emily Alvarado's Webpage!
-
 <html>
   <body>
     <h1>List of Assignments Completed</h1>
