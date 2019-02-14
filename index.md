@@ -6,6 +6,7 @@
       <li> <a href="/docs/join.html">Join</a> </li>
       <li> <a href="/docs/slideshow.html">Slideshow</a> </li>
       <li> <a href="/docs/area.html">Area and Perimeter</a> </li>
+      <li> <a href="/docs/indexDone.html">Enhance MPG Application</a> </li>
     </ul>
   </body>
 </html>  
