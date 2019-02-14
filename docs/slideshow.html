@@ -1,36 +1,24 @@
-"use strict";
-var $ = function (id) { return document.getElementById(id); };
 
-var imageCache = [];
-var imageCounter = 0;
-var timer;
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Slideshow</title>
+  <link rel="stylesheet" type="text/css" href="slideshow.css">
+  <script type="text/javascript" src="slideshow.js"></script>
+</head>
 
-var runSlideShow = function() {
-    imageCounter = (imageCounter + 1) % imageCache.length;
-    var image = imageCache[imageCounter];
-    $("image").src = image.src;
-    $("caption").firstChild.nodeValue = image.title;
-};
+<body>
+    <main>
+        <h1>Fishing Slide Show</h1>
+        <ul id="image_list">
+            <li><a href="images/release.jpg" title="Catch and Release"></a></li>
+            <li><a href="images/deer.jpg" title="Deer at Play"></a></li>
+            <li><a href="images/hero.jpg" title="The Big One!"></a></li>
+            <li><a href="images/bison.jpg" title="Roaming Bison"></a></li>
+        </ul>
 
-window.onload = function () {
-    var listNode = $("image_list");    // the ul element
-    var links = listNode.getElementsByTagName("a");
-    
-    // Preload image, copy title properties, and store in array
-    var i, link, image;
-    for ( i = 0; i < links.length; i++ ) {
-        link = links[i];
-        image = new Image();
-        image.src = link.getAttribute("href");
-        image.title = link.getAttribute("title");
-        imageCache[imageCache.length] = image;
-    }
-
-    // Attach start and pause event handlers
-    $("start").onclick = function() {
-        
-    };
-    $("pause").onclick = function() {
-        
-    };
-};
+        <p><img src="images/release.jpg" alt="Catch and Release" id="image"></p>
+        <h2 id="caption">Catch and Release</h2>
+    </main>
+</body>
+</html>
