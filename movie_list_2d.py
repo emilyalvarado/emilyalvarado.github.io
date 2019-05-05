@@ -10,28 +10,18 @@ def display_menu():
 
 def list(movie_list):
     if len(movie_list) == 0:
-        print("There are no movies in the list.\n")
-        return
-    else:
-        i = 0
-        for movie in movie_list:
-            row = movie
-            print(str(i+1) + ". " + row[0]
-                 + " (" + str(row[1]) + ")"
-                 + " @ " + str(row[2]))
+        print(str(i) + " . " + row["name"] + " (" + str(row["year"]) + ")")
             i += 1
         print()
 
 def add(movie_list):
     name = input("Name: ")
     year = input("Year: ")
-    price = input("Price: ")
     movie = []
-    movie.append(name)
-    movie.append(year)
-    movie.append(price)
+    movie["name"] = name
+    movie["year"] = year
     movie_list.append(movie)
-    print(movie[0] + " was added.\n")
+    print(movie["movie"] + " was added.\n")
     
 def delete(movie_list):
     number = int(input("Number: "))
@@ -39,20 +29,12 @@ def delete(movie_list):
         print("Invalid movie number.\n")
     else:
         movie = movie_list.pop(number-1)
-        print(movie[0] + " was deleted.\n")
-
-def find_by_year(movie_list):
-    year = int(input("Year: "))
-    for movie in movie_list:
-        if movie[1] == year:
-            print(movie[0] + " was released in " + str(year))      
-    print()
-
+        print(movie["name"] + " was deleted.\n")
+        
 def main():
-    movie_list = [["Monty Python and the Holy Grail", 1975, 9.95],
-                  ["On the Waterfront", 1954, 5.59],
-                  ["Cat on a Hot Tin Roof", 1958, 7.95],
-                  ["Gone with the Wind", 1939, 14.95]]
+    movie_list = [{"name": "Monty Python and the Holy Grail", "year": 1975},
+                  {"name": "On the Waterfront", "year": 1954},
+                  {"name": "Cat on a Hot Tin Roof", "year": 1958}]
     
     display_menu()
     while True:        
@@ -63,8 +45,6 @@ def main():
             add(movie_list)
         elif command == "del":
             delete(movie_list)
-        elif command == "find":
-            find_by_year(movie_list)
         elif command == "exit":
             break
         else:
